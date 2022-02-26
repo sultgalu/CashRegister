@@ -1,0 +1,12 @@
+org\kassza\spring\CashRegisterApplication$1.class
+org\kassza\datamodel\CashRegister$CashRegisterBuilder.class
+org\kassza\rest\CashRegisterController.class
+org\kassza\datamodel\Account$AccountBuilder.class
+org\kassza\datamodel\Account.class
+org\kassza\datamodel\Currency.class
+org\kassza\spring\CashRegisterApplication.class
+org\kassza\datamodel\StorageType.class
+org\kassza\service\CashRegisterService$1.class
+org\kassza\service\CashRegisterService.class
+org\kassza\datamodel\CashRegister.class
+org\kassza\store\CashRegisterRepository.class

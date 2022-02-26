@@ -5,7 +5,9 @@ import org.kassza.datamodel.CashRegister;
 import org.kassza.datamodel.Currency;
 import org.kassza.datamodel.StorageType;
 import org.kassza.store.CashRegisterRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CashRegisterService {
   private final CashRegisterRepository repo = new CashRegisterRepository();
 

@@ -1,29 +1,33 @@
 package org.kassza.spring;
 
-import org.kassza.datamodel.Account;
-import org.kassza.datamodel.CashRegister;
-import org.kassza.service.CashRegisterService;
-import org.kassza.store.CashRegisterRepository;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+@Configuration
+@EnableWebMvc
+@EnableAutoConfiguration
+@ComponentScan(basePackages = "org.kassza")
+@SpringBootApplication
 public class CashRegisterApplication {
-  private static CashRegisterService service = new CashRegisterService();
-  private static CashRegisterRepository repo = new CashRegisterRepository();
+  public static void main(String[] args) {
+    SpringApplication.run(CashRegisterApplication.class, args);
+  }
 
-  public static void main(String[] args) throws Exception {
+  @Bean
+  public WebMvcConfigurer corsConfigurer() {
+    return new WebMvcConfigurer() {
 
-    repo.add(CashRegister.builder()
-      .bank(Account.builder()
-        .euro(1)
-        .dollar(2)
-        .forint(3)
-        .build())
-      .cash(Account.builder()
-        .euro(3)
-        .dollar(2)
-        .forint(2)
-        .build())
-      .build());
-
-    System.out.println(service.getAllMoney());
+      // @Override
+      public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**");
+      }
+    };
   }
 }
